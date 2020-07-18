@@ -269,7 +269,7 @@
          * @param array $data
          * @return string
          */
-        private function _updateSQL($table, $data)
+        private function _updateSQL($table=null, $data)
         {
             (!$table) ?: $this->setTable($table);
             $sql    = "UPDATE `$this->TABLE` SET";
@@ -292,6 +292,7 @@
          */
         public function updateId($id, $data, $table=null)
         {
+            (!$table) ?: $this->setTable($table);
             $id      = intval($this->escape($id));
             $sql     = $this->_updateSQL($table, $data);
             $sql    .= " WHERE id=$id";

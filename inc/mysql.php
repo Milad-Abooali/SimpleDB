@@ -309,6 +309,7 @@
          */
         public function updateAny($data, $table=null, $where=null, $end=null, $start='0000-00-00')
         {
+            (!$table) ?: $this->setTable($table);
             $end       = $this->escape($end);
             $start     = $this->escape($start);
             $sql       = $this->_updateSQL($table, $data).' WHERE ';
